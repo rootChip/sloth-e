@@ -1,0 +1,22 @@
+.security {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .security {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.security-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.security-points {
+  display: grid;
+  gap: var(--space-md);
+}

@@ -1,0 +1,22 @@
+.navbar {
+    max-width: var(--page-max-width);
+    margin-inline: auto;
+    padding: var(--space-md) var(--space-lg);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-right {
+    list-style: none;
+    display: flex;
+    gap: var(--space-lg);
+    margin: 0;
+    padding: 0;
+}
+
+.nav-right a {
+    text-decoration: none;
+    color: inherit;
+}

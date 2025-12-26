@@ -1,0 +1,18 @@
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.input-field label {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.input-field input {
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-muted);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}

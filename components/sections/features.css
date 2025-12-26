@@ -1,0 +1,10 @@
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.features-list {
+  display: grid;
+  gap: var(--space-md);
+}
