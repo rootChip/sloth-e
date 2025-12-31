@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { db } from "@/lib/db";
+import { db } from "@/lib/data/db";
 import { signAuthToken } from "./crypto";
 
 export async function loginUser(email: string, password: string) {

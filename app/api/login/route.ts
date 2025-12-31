@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
-import { db } from "@/lib/db";
+import { db } from "@/lib/data/db";
 import { signAuthToken } from "@/lib/auth/crypto";
 
 export async function POST(req: Request) {
