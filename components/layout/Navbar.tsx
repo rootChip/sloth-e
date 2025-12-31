@@ -1,28 +1,22 @@
 import Link from "next/link";
-import "./navbar.css";
+import { cookies } from "next/headers";
 
-export default function Navbar() {
-    return (
-<header>
-    <nav className="navbar">
-        <div className="nav-left">
-                <Link href="/">Sloth-E</Link>
-        </div>
+export default async function Navbar() {
+  const token = (await cookies()).get("sloth-e-auth")?.value;
+  const authed = Boolean(token);
 
-        <ul className="nav-right">
-            <li>
-                <Link href="/about">About</Link>
-            </li>
+  return (
+    <nav>
+      <Link href="/">Home</Link>
+      <Link href="/store">Store</Link>
 
-            <li>
-                <Link href="/store">Store</Link>
-            </li>
-
-            <li>
-                <Link href="/contact">Contact</Link>
-            </li>
-        </ul>    
+      {authed ? (
+        <form action="/api/auth/logout" method="post">
+          <button>Logout</button>
+        </form>
+      ) : (
+        <Link href="/login">Login</Link>
+      )}
     </nav>
-</header>
-);
+  );
 }

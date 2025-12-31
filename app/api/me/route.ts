@@ -1,19 +1,28 @@
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { isAuthenticated } from "@/lib/auth-edge";
+import { cookies } from "next/headers";
+import { verifyAuthToken } from "@/lib/auth/auth-edge";
+import { getUserById } from "@/lib/data/users";
 
-export async function GET(request: NextRequest) {
-  if (!isAuthenticated(request)) {
-    return NextResponse.json(
-      { error: "Unauthorized" },
-      { status: 401 }
-    );
+export async function GET() {
+  const token = (await cookies()).get("sloth-e-auth")?.value;
+  const auth = verifyAuthToken(token);
+
+  if (!auth) {
+    return NextResponse.json({ ok: false }, { status: 401 });
+  }
+
+  const user = await getUserById(auth.userId);
+
+  if (!user) {
+    return NextResponse.json({ ok: false }, { status: 404 });
   }
 
   return NextResponse.json({
+    ok: true,
     user: {
-      id: "stub-user",
-      role: "admin",
+      id: user.id,
+      email: user.email,
+      role: user.role,
     },
   });
 }

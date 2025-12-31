@@ -1,9 +1,15 @@
-import PageShell from "@/components/layout/PageShell";
-
 export default function SettingsPage() {
   return (
-    <PageShell>
-      <h1>Settings</h1>
-    </PageShell>
+    <main className="p-6 space-y-4">
+      <h1 className="text-xl font-bold">Settings</h1>
+
+      <section>
+  <h2>Session</h2>
+
+  <form action="/api/auth/logout" method="post">
+    <button type="submit">Log out</button>
+  </form>
+</section>
+    </main>
   );
 }
