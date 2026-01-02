@@ -1,0 +1,12 @@
+.consulting-companies {
+  padding: 4rem 2rem;
+}
+
+.companies-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+}
